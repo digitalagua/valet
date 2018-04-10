@@ -11,7 +11,7 @@ class PhpFpm
     var $brew, $cli, $files;
 
     var $taps = [
-        'homebrew/dupes', 'homebrew/versions', 'homebrew/homebrew-php'
+        'homebrew/core'
     ];
 
     /**
@@ -37,7 +37,7 @@ class PhpFpm
     function install()
     {
         if (! $this->brew->hasInstalledPhp()) {
-            $this->brew->ensureInstalled('php71', [], $this->taps);
+            $this->brew->ensureInstalled('php', [], $this->taps);
         }
 
         $this->files->ensureDirExists('/usr/local/var/log', user());
